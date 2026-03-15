@@ -4,29 +4,28 @@ Automates clicking the "Купити" button on coins.bank.gov.ua product pages 
 
 ## Requirements
 
-- macOS
+- windows
 - Python 3.9+
-- Google Chrome installed at `/Applications/Google Chrome.app`
+- Google Chrome installed
 - Logged into coins.bank.gov.ua in Chrome
 
 ## Setup
 
 ```bash
-cd evgencoins
+cd {project_path}
 
 # Create virtual environment and install dependencies
 python3 -m venv .venv
-source .venv/bin/activate
+.venv\Scripts\activate
 pip install -r requirements.txt
-
-# Install Playwright's Chromium (needed for CDP connection)
-playwright install chromium
+pip install playwright
+python -m playwright install chromium
 ```
 
 ## Run
 
 ```bash
-source .venv/bin/activate
+.venv\Scripts\activate
 python run.py
 ```
 
