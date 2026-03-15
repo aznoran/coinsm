@@ -1,0 +1,214 @@
+/* === shadcn-inspired design tokens === */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 98%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 98%;
+  --radius: 0.5rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: hsl(240 4.8% 95.9%);
+  color: hsl(var(--foreground));
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Typography === */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* === Card === */
+.card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(var(--foreground));
+}
+
+/* === Form === */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.field { display: flex; flex-direction: column; gap: 0.375rem; }
+.field-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+.field input {
+  height: 2.25rem;
+  padding: 0 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: transparent;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.field input:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / .15);
+}
+
+.input-with-btn { display: flex; gap: 0.375rem; align-items: center; width: 100%; }
+.input-with-btn input { flex: 1; min-width: 0; }
+
+/* === Buttons === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background .15s, opacity .15s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-ghost {
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  padding: 0 0.5rem;
+}
+.btn-ghost:hover { background: hsl(var(--muted)); color: hsl(var(--foreground)); }
+.btn-destructive-ghost {
+  background: transparent;
+  color: hsl(var(--destructive));
+  padding: 0 0.5rem;
+}
+.btn-destructive-ghost:hover { background: hsl(0 84.2% 60.2% / .1); }
+.btn-success-ghost {
+  background: transparent;
+  color: hsl(var(--success));
+  padding: 0 0.5rem;
+}
+.btn-success-ghost:hover { background: hsl(142 76% 36% / .1); }
+.btn-warning-ghost {
+  background: transparent;
+  color: hsl(var(--warning));
+  padding: 0 0.5rem;
+}
+.btn-warning-ghost:hover { background: hsl(38 92% 50% / .1); }
+
+/* === Table === */
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+thead th {
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+tbody td {
+  padding: 0.75rem;
+  border-bottom: 1px solid hsl(var(--border));
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: hsl(var(--muted) / .5); }
+
+/* === Badges === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.badge-pending     { background: hsl(38 92% 50% / .1);   color: hsl(38 92% 40%);  border-color: hsl(38 92% 50% / .2); }
+.badge-scheduled   { background: hsl(217 91% 60% / .1);  color: hsl(217 91% 50%); border-color: hsl(217 91% 60% / .2); }
+.badge-in-progress { background: hsl(262 83% 58% / .1);  color: hsl(262 83% 48%); border-color: hsl(262 83% 58% / .2); }
+.badge-successful  { background: hsl(142 76% 36% / .1);  color: hsl(142 76% 30%); border-color: hsl(142 76% 36% / .2); }
+.badge-failed      { background: hsl(0 84% 60% / .1);    color: hsl(0 84% 50%);   border-color: hsl(0 84% 60% / .2); }
+.badge-expired     { background: hsl(var(--muted));       color: hsl(var(--muted-foreground)); border-color: hsl(var(--border)); }
+.badge-stopped     { background: hsl(38 92% 50% / .1);   color: hsl(38 92% 40%);  border-color: hsl(38 92% 50% / .2); }
+
+/* === Cells === */
+.url-cell { max-width: 320px; white-space: nowrap; }
+.url-cell-content { display: inline-block; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; }
+.copy-url { vertical-align: middle; }
+.error-cell { max-width: 240px; }
+.error-content { display: flex; align-items: center; gap: 0.25rem; }
+.error-text {
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(var(--destructive));
+  font-size: 0.75rem;
+}
+.actions-cell { white-space: nowrap; }
+
+/* === Misc === */
+.empty-state {
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+  padding: 2.5rem 1rem;
+  font-size: 0.875rem;
+}
+.icon { width: 16px; height: 16px; vertical-align: middle; }
+.icon-sm { width: 14px; height: 14px; }
+.mono { font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace; font-size: 0.8125rem; }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Target Page</title>
+<style>
+  body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f5f5f5; }
+  div#button { padding: 16px 32px; background: #4f46e5; color: #fff; border-radius: 8px; cursor: pointer; font-size: 18px; user-select: none; }
+  div#button:hover { background: #4338ca; }
+  div#pressed { display: none; margin-top: 24px; padding: 16px 32px; background: #16a34a; color: #fff; border-radius: 8px; font-size: 18px; }
+  .info { margin-bottom: 24px; color: #666; }
+</style>
+</head>
+<body>
+  <p class="info">Mock target page — click the button below or let the automation do it.</p>
+  <div id="button" onclick="handleClick()">Click Me</div>
+  <div id="pressed">Button was pressed!</div>
+  <script>
+    // Optional: add ?delay=5 to URL to delay button appearance by N seconds
+    const params = new URLSearchParams(location.search);
+    const delay = parseInt(params.get("delay") || "0", 10);
+    const btn = document.getElementById("button");
+    if (delay > 0) {
+      btn.style.display = "none";
+      setTimeout(() => { btn.style.display = ""; }, delay * 1000);
+    }
+    function handleClick() {
+      btn.style.display = "none";
+      document.getElementById("pressed").style.display = "block";
+    }
+  </script>
+</body>
+</html>
